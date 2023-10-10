@@ -10,42 +10,79 @@
   },
   "width": 800,
   "transform": [
-    { "bin": { "step": 5 }, "field": "age", "as": "Age" },
-    {
-      "aggregate": [{ "op": "count", "as": "Count" }],
-      "groupby": ["Age"]
-    },
-    { "calculate": "datum.gender == 'F' ? 'Female' : 'Male'", "as": "Gender" },
-  ],
-  "params": [
-    {
-      "name": "highlight",
-      "select": { "type": "point", "on": "mouseover" }
-    }
+    { "calculate": "datum.gender == 'F' ? 'Female' : 'Male'", "as": "Gender" }
   ],
   "layer": [
     {
+      "params": [
+        {
+          "name": "legend_highlight",
+          "select": { "type": "point", "fields": ["Gender"] },
+          "bind": "legend"
+        }
+      ],
       "mark": { "type": "bar" },
       "encoding": {
         "x": {
-          "field": "Age",
-          "type": "ordinal",
+          "field": "age",
           "title": "Age",
-          "scale": { "zero": false },
-          "axis": { "grid": false }
+          "bin": { "step": 5 }
         },
         "y": {
-          "field": "Count",
-          "title": "population",
-          "stack": null
+          "aggregate": "count",
+          "title": "Number"
         },
         "color": {
-          "field": "gender",
-          "scale": { "range": ["#675193", "#ca8861"] }
+          "field": "Gender",
+          "scale": { "range": ["#675193", "#ca8861"] },
+          "legend": {
+            "orient": "top-right"
+          }
+        },
+        "opacity": {
+          "condition": { "param": "legend_highlight", "value": 1 },
+          "value": 0.2
         },
         "tooltip": [
-          { "field": "city", "type": "nominal", "title": "City" },
-          { "field": "sum", "type": "quantitative", "title": "Count" }
+          {
+            "field": "age",
+            "type": "quantitative",
+            "title": "Age",
+            "bin": { "step": 5 }
+          },
+          { "field": "Gender", "type": "nominal", "title": "Gender" },
+          { "aggregate": "count", "type": "quantitative", "title": "Victims" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": { "filled": false, "fill": "white", "color": "yellow" },
+        "color": "yellow"
+      },
+      "encoding": {
+        "x": {
+          "field": "age",
+          "title": "Age",
+          "bin": { "step": 5 }
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Number"
+        },
+        "tooltip": [
+          {
+            "field": "age",
+            "type": "quantitative",
+            "title": "Age",
+            "bin": { "step": 5 }
+          },
+          {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Total Victims"
+          }
         ]
       }
     }
