@@ -6,7 +6,7 @@
   "title": {
     "text": "Used Weapons of Victims",
     "fontSize": 20,
-    "font": "Helvetica"
+    "font": "Century Gothic"
   },
   "width": 800,
   "transform": [
@@ -37,12 +37,20 @@
         "x": {
           "field": "Count",
           "type": "quantitative",
-          "axis": { "title": "Number of Cases" }
+          "axis": {
+            "title": "Number of Cases",
+            "titleFont": "Century Gothic",
+            "labelFont": "Century Gothic"
+          }
         },
         "y": {
           "field": "armed",
           "type": "nominal",
-          "axis": { "title": "Weapon" },
+          "axis": {
+            "title": "Weapon",
+            "titleFont": "Century Gothic",
+            "labelFont": "Century Gothic"
+          },
           "sort": "-x"
         },
         "tooltip": [

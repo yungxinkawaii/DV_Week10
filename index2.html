@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The US Police Shooting Story</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="middle-section">
+      <div class="content">
+        <!-- Your content goes here -->
+        <h1 style="text-align: center">When Law Meets Lethal Force:</h1>
+        <h1 class="title">The US Police Shooting Story</h1>
+
+        <img style="height: 300px" src="assets/gun.jpg" alt="title image" />
+
+        <p>
+          Fatal incidents involving law enforcement officers in the United
+          States are a significant concern. Congress requested data on police
+          use of force in 1994, but it was never compiled, and the FBI doesn't
+          collect this information. Recent estimates indicate an annual range of
+          930 to 1,240 justifiable homicides, with police shootings being a
+          leading cause of death for men aged 25–29. Two databases,
+          <span class="custom-highlight">'The Counted'</span> by The Guardian
+          and <span class="custom-highlight">The Washington Post</span>,
+          recorded these incidents from 2015 to 2019. In 2019, The Washington
+          Post reported 1,004 police shooting fatalities, totaling 6,600 since
+          2015, primarily affecting men.
+        </p>
+        <p>
+          Our website will visualize data from the
+          <span class="custom-highlight"
+            >👮‍♂️🔫US Police Shootings from 2015- Sep 2022</span
+          >
+          database. We'll explore case distribution by state, identify cities
+          with the highest incidence, analyze age and race demographics, assess
+          weapons used, and present an annual case trend.
+        </p>
+
+        <!-- Add your content elements here -->
+      </div>
+    </div>
+
+    <div class="middle-section">
+      <div class="content">
+        <!-- Your content goes here -->
+        <h1>Occurances by State</h1>
+        <p>
+          The analysis reveals a stark disparity in the frequency of these
+          incidents, with
+          <span class="custom-highlight">California</span> bearing the brunt at
+          a staggering <span class="custom-highlight">739</span> occurrences,
+          followed by Texas at 439. Meanwhile,
+          <span class="custom-highlight">Rhode Island</span> stands in stark
+          contrast, experiencing a mere
+          <span class="custom-highlight">2</span> such incidents – a stark
+          reminder of the dramatic differences across states.
+        </p>
+        <div class="visualization-container">
+          <div id="chropleth_map"></div>
+        </div>
+
+        <!-- Add your content elements here -->
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var spec1 = "js/chropleth_map.vg.json";
+
+      vegaEmbed("#chropleth_map", spec1)
+        .then(function (result) {})
+        .catch(console.error);
+    </script>
+  </body>
+</html>
