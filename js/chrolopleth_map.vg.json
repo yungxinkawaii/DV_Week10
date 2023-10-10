@@ -22,7 +22,7 @@
         "data": {
           "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/data/covid_10_10_2020.csv"
         },
-        "key": "Country",
+        "key": "State",
         "fields": ["Active"]
       }
     }
