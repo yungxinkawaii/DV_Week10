@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week10/main/data/US%20Police%20shootings%20in%20from%202015-22%20cleaned.csv"
+  },
+  "title": {
+    "text": "Victims' Age Distribution",
+    "fontSize": 20,
+    "font": "Helvetica"
+  },
+  "width": 800,
+  "transform": [
+    { "bin": { "step": 5 }, "field": "age", "as": "Age" },
+    {
+      "aggregate": [{ "op": "count", "as": "Count" }],
+      "groupby": ["Age"]
+    },
+    { "calculate": "datum.gender == 'F' ? 'Female' : 'Male'", "as": "Gender" },
+  ],
+  "params": [
+    {
+      "name": "highlight",
+      "select": { "type": "point", "on": "mouseover" }
+    }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "bar" },
+      "encoding": {
+        "x": {
+          "field": "Age",
+          "type": "ordinal",
+          "title": "Age",
+          "scale": { "zero": false },
+          "axis": { "grid": false }
+        },
+        "y": {
+          "field": "Count",
+          "title": "population",
+          "stack": null
+        },
+        "color": {
+          "field": "gender",
+          "scale": { "range": ["#675193", "#ca8861"] }
+        },
+        "tooltip": [
+          { "field": "city", "type": "nominal", "title": "City" },
+          { "field": "sum", "type": "quantitative", "title": "Count" }
+        ]
+      }
+    }
+  ]
+}
