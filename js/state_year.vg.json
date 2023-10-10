@@ -4,10 +4,11 @@
     "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week10/master/data/output_merged.csv"
   },
   "width": 800,
+  "background": null,
   "title": {
     "text": "Timeline of Occurence by State",
     "fontSize": 20,
-    "font": "Helvetica"
+    "font": "Century Gothic"
   },
   "params": [
     {
@@ -137,9 +138,22 @@
           "field": "date",
           "type": "temporal",
           "timeUnit": "year",
-          "axis": { "title": "Year", "tickCount": 10 }
+          "axis": {
+            "title": "Year",
+            "tickCount": 10,
+            "titleFont": "Century Gothic",
+            "labelFont": "Century Gothic"
+          }
         },
-        "y": { "aggregate": "count", "title": "Number of Cases", "type": "quantitative" },
+        "y": {
+          "aggregate": "count",
+          "title": "Number of Cases",
+          "type": "quantitative",
+          "axis": {
+            "titleFont": "Century Gothic",
+            "labelFont": "Century Gothic"
+          }
+        },
         "color": {
           "field": "state_fullname",
           "type": "nominal",
@@ -202,8 +216,17 @@
         },
         "tooltip": [
           { "field": "state_fullname", "type": "nominal", "title": "State" },
-          { "field": "date", "type": "temporal", "title": "Year" , "timeUnit": "year"},
-          { "aggregate": "count", "type": "quantitative", "title": "Number of Cases" }
+          {
+            "field": "date",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+          },
+          {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Number of Cases"
+          }
         ]
       }
     }

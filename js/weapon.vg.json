@@ -3,12 +3,14 @@
   "data": {
     "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week10/master/data/US%20Police%20shootings%20in%20from%202015-22%20cleaned.csv"
   },
+  "background": null,
+  "width": 800,
+  "height": 300,
   "title": {
     "text": "Used Weapons of Victims",
     "fontSize": 20,
     "font": "Century Gothic"
   },
-  "width": 800,
   "transform": [
     {
       "groupby": ["armed"],
@@ -32,7 +34,7 @@
   ],
   "layer": [
     {
-      "mark": "bar",
+      "mark": { "type": "bar", "color": "saddlebrown" },
       "encoding": {
         "x": {
           "field": "Count",

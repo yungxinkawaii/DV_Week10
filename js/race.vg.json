@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 300,
+  "background": null,
   "data": {
     "values": [
       { "category": "White", "value": 2583, "percentage": 0.5094674556213018 },
@@ -17,9 +19,9 @@
   "title": {
     "text": "Victims' Race Distribution",
     "fontSize": 20,
-    "font": "Helvetica"
+    "font": "Century Gothic"
   },
-  "width": 400,
+  "width": 500,
   "encoding": {
     "theta": {
       "field": "value",
@@ -40,9 +42,14 @@
           "#d6c9bd"
         ]
       },
-      "legend":{
+      "legend": {
         "title": "Race",
-        "orient": "bottom-right"
+        "orient": "top-right",
+        "titleFont": "Century Gothic",
+        "labelFont": "Century Gothic",
+        "titleFontSize": 15,
+        "labelFontSize": 12,
+        "symbolSize": 300
       }
     },
     "tooltip": [
@@ -58,7 +65,7 @@
   },
   "layer": [
     {
-      "mark": { "type": "arc", "innerRadius": 30, "outerRadius": 100 }
+      "mark": { "type": "arc", "innerRadius": 50, "outerRadius": 140 }
     }
   ]
 }

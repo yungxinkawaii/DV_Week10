@@ -101,3 +101,24 @@ img {
   width: 100%;
   height: max-content;
 }
+
+.container {
+  display: flex;
+}
+
+.left {
+  flex: 1; /* Take up 50% of the container */
+  /* Additional styling for the left section */
+}
+
+.right {
+  flex: 1; /* Take up 50% of the container */
+  /* Additional styling for the right section */
+}
+
+.subtitle {
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #888; /* Subtitle color (a shade of gray) */
+  margin-bottom: 10px; /* Add spacing below the subtitle */
+  font-family: "Century Gothic", sans-serif; /* Use the specified font-family */
+}
