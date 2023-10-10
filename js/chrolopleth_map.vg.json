@@ -15,29 +15,45 @@
       "feature": "ne_110m_admin_1_states_provinces"
     }
   },
+  "params": [
+    {
+      "name": "highlight",
+      "select": { "type": "point", "on": "mouseover" }
+    }
+  ],
   "transform": [
     {
-      "lookup": "properties.NAME",
+      "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/data/covid_10_10_2020.csv"
+          "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week10/master/data/US%20Police%20shootings%20in%20from%202015-22%20cases.csv"
         },
         "key": "State",
-        "fields": ["Active"]
+        "fields": ["Cases"]
       }
     }
   ],
-  "mark": { "type": "geoshape" },
+  "mark": { "type": "geoshape", "stroke": "white" },
   "encoding": {
     "color": {
-      "field": "cases",
+      "field": "Cases",
       "type": "quantitative",
       "title": "Number of Cases",
-      "scale": { "scheme": "reds" }
+      "scale": { "scheme": "browns" }
     },
     "tooltip": [
       { "field": "properties.name", "type": "nominal", "title": "State" },
-      { "field": "cases", "type": "quantitative", "title": "Number of Cases" }
-    ]
+      { "field": "Cases", "type": "quantitative", "title": "Number of Cases" }
+    ],
+    "strokeWidth": {
+      "condition": [
+        {
+          "param": "highlight",
+          "empty": false,
+          "value": 3
+        }
+      ],
+      "value": 0.3
+    }
   }
 }
