@@ -9,7 +9,7 @@
   },
   "projection": { "type": "albersUsa" },
   "data": {
-    "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/ne_110m_admin.topojson",
+    "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week10/master/data/ne_110m_admin.topojson",
     "format": {
       "type": "topojson",
       "feature": "ne_110m_admin_1_states_provinces"
