@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "title": {
+    "text": "👮‍♂️🔫US Police Shootings from 2015 to Sep 2022",
+    "fontSize": 20,
+    "font": "Helvetica"
+  },
+  "projection": { "type": "albersUsa" },
+  "data": {
+    "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/ne_110m_admin.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "ne_110m_admin_1_states_provinces"
+    }
+  },
+  "transform": [
+    
+  ],
+  "mark": { "type": "geoshape" },
+  "encoding": {
+    "color": {
+      "field": "cases",
+      "type": "quantitative",
+      "title": "Number of Cases",
+      "scale": { "scheme": "reds" }
+    },
+    "tooltip": [
+      { "field": "properties.name", "type": "nominal", "title": "State" },
+      { "field": "cases", "type": "quantitative", "title": "Number of Cases" }
+    ]
+  }
+}
